@@ -5,7 +5,7 @@ Four-day hands-on training curriculum for [AttackMate](https://ait-testbed.githu
 ## Curriculum
 
 **Day 1 -  Fundamentals**
-Playbook structure, variables, shell commands, SSH/SFTP, regex parsing, conditionals, loops, and error handling. Exercises target a Metasploitable2 VM. Walkthroughs 1–3 run locally without a target.
+Playbook structure, variables, shell commands, SSH/SFTP, regex parsing, conditionals, loops, and error handling. Exercises target a Metasploitable2 VM. Walkthroughs 1-3 run locally without a target.
 
 **Day 2 - Payloads, Metasploit, and C2**
 Metasploit integration (`msf-module`, `msf-session`, `msf-payload`), payload delivery via `webserv`, shell-to-Meterpreter upgrades, modular playbooks with `include`, and an introduction to Sliver C2. Requires `msfrpcd` running on the attacker machine.
