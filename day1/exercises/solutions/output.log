@@ -1,0 +1,144 @@
+--- 2026-03-24 15:43:05 INFO: ---
+
+Command: === Multi-Port Scanner ===
+Debug: '=== Multi-Port Scanner ==='
+--- 2026-03-24 15:43:05 INFO: ---
+
+Command: Target: 10.110.0.31
+Debug: 'Target: 10.110.0.31'
+--- 2026-03-24 15:43:05 INFO: ---
+
+Command: ---
+Debug: '---'
+--- 2026-03-24 15:43:07 INFO: ---
+
+Command: nmap -p 21 10.110.0.31
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 15:43 CET
+Nmap scan report for 10.110.0.31
+Host is up (0.0050s latency).
+
+PORT   STATE SERVICE
+21/tcp open  ftp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.02 seconds
+
+--- 2026-03-24 15:43:08 INFO: ---
+
+Command: open
+
+--- 2026-03-24 15:43:08 INFO: ---
+
+Command: Port 21: open
+Debug: 'Port 21: open'
+--- 2026-03-24 15:43:08 INFO: ---
+
+Command:   --> Found open service on port 21!
+Debug: '  --> Found open service on port 21!'
+--- 2026-03-24 15:43:09 INFO: ---
+
+Command: nmap -p 22 10.110.0.31
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 15:43 CET
+Nmap scan report for 10.110.0.31
+Host is up (0.0081s latency).
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 0.06 seconds
+
+--- 2026-03-24 15:43:10 INFO: ---
+
+Command: open
+
+--- 2026-03-24 15:43:10 INFO: ---
+
+Command: Port 22: open
+Debug: 'Port 22: open'
+--- 2026-03-24 15:43:10 INFO: ---
+
+Command:   --> Found open service on port 22!
+Debug: '  --> Found open service on port 22!'
+--- 2026-03-24 15:43:11 INFO: ---
+
+Command: nmap -p 80 10.110.0.31
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 15:43 CET
+Nmap scan report for 10.110.0.31
+Host is up (0.0018s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 0.04 seconds
+
+--- 2026-03-24 15:43:12 INFO: ---
+
+Command: open
+
+--- 2026-03-24 15:43:12 INFO: ---
+
+Command: Port 80: open
+Debug: 'Port 80: open'
+--- 2026-03-24 15:43:12 INFO: ---
+
+Command:   --> Found open service on port 80!
+Debug: '  --> Found open service on port 80!'
+--- 2026-03-24 15:43:13 INFO: ---
+
+Command: nmap -p 443 10.110.0.31
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 15:43 CET
+Nmap scan report for 10.110.0.31
+Host is up (0.0068s latency).
+
+PORT    STATE  SERVICE
+443/tcp closed https
+
+Nmap done: 1 IP address (1 host up) scanned in 0.06 seconds
+
+--- 2026-03-24 15:43:14 INFO: ---
+
+Command: open
+
+--- 2026-03-24 15:43:14 INFO: ---
+
+Command: Port 443: open
+Debug: 'Port 443: open'
+--- 2026-03-24 15:43:14 INFO: ---
+
+Command:   --> Found open service on port 443!
+Debug: '  --> Found open service on port 443!'
+--- 2026-03-24 15:43:15 INFO: ---
+
+Command: nmap -p 6667 10.110.0.31
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-03-24 15:43 CET
+Nmap scan report for 10.110.0.31
+Host is up (0.0071s latency).
+
+PORT     STATE SERVICE
+6667/tcp open  irc
+
+Nmap done: 1 IP address (1 host up) scanned in 0.07 seconds
+
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command: open
+
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command: Port 6667: open
+Debug: 'Port 6667: open'
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command:   --> Found open service on port 6667!
+Debug: '  --> Found open service on port 6667!'
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command: items(SCAN_PORTS)
+
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command: ---
+Debug: '---'
+--- 2026-03-24 15:43:16 INFO: ---
+
+Command: === Scan Complete ===
+Debug: '=== Scan Complete ==='

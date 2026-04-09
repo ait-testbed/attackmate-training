@@ -1,0 +1,29 @@
+--- 2026-04-09 13:07:13 INFO: ---
+
+Command: post_api_session
+{"success":true,"msg":""}
+
+--- 2026-04-09 13:07:13 INFO: ---
+
+Command: Network probing started. Waiting 15 seconds for discovery...
+Debug: 'Network probing started. Waiting 15 seconds for discovery...'
+--- 2026-04-09 13:07:14 INFO: ---
+
+Command: 15
+Awake O_O
+--- 2026-04-09 13:07:18 INFO: ---
+
+Command: post_api_session
+{"success":true,"msg":""}
+
+--- 2026-04-09 13:07:18 INFO: ---
+
+Command: get_session_lan
+{"hosts":[]}
+
+--- 2026-04-09 13:07:18 INFO: ---
+
+Command: Discovered LAN hosts: {"hosts":[]}
+
+Debug: 'Discovered LAN hosts: {"hosts":[]}
+'

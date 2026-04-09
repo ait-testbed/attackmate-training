@@ -1,0 +1,49 @@
+2026-03-24 15:43:05 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:05 WARNING - Debug: '=== Multi-Port Scanner ==='
+2026-03-24 15:43:05 WARNING - Debug: 'Target: 10.110.0.31'
+2026-03-24 15:43:05 WARNING - Debug: '---'
+2026-03-24 15:43:06 INFO - Looping commands
+2026-03-24 15:43:06 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:07 INFO - Executing Shell-Command: 'nmap -p 21 10.110.0.31'
+2026-03-24 15:43:07 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:08 WARNING - RegEx: 'open', Mode: 'search'
+2026-03-24 15:43:08 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:08 WARNING - Debug: 'Port 21: open'
+2026-03-24 15:43:08 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:08 WARNING - Debug: '  --> Found open service on port 21!'
+2026-03-24 15:43:08 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:09 INFO - Executing Shell-Command: 'nmap -p 22 10.110.0.31'
+2026-03-24 15:43:09 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:10 WARNING - RegEx: 'open', Mode: 'search'
+2026-03-24 15:43:10 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:10 WARNING - Debug: 'Port 22: open'
+2026-03-24 15:43:10 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:10 WARNING - Debug: '  --> Found open service on port 22!'
+2026-03-24 15:43:10 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:11 INFO - Executing Shell-Command: 'nmap -p 80 10.110.0.31'
+2026-03-24 15:43:11 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:12 WARNING - RegEx: 'open', Mode: 'search'
+2026-03-24 15:43:12 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:12 WARNING - Debug: 'Port 80: open'
+2026-03-24 15:43:12 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:12 WARNING - Debug: '  --> Found open service on port 80!'
+2026-03-24 15:43:12 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:13 INFO - Executing Shell-Command: 'nmap -p 443 10.110.0.31'
+2026-03-24 15:43:13 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:14 WARNING - RegEx: 'open', Mode: 'search'
+2026-03-24 15:43:14 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:14 WARNING - Debug: 'Port 443: open'
+2026-03-24 15:43:14 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:14 WARNING - Debug: '  --> Found open service on port 443!'
+2026-03-24 15:43:14 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:15 INFO - Executing Shell-Command: 'nmap -p 6667 10.110.0.31'
+2026-03-24 15:43:15 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:16 WARNING - RegEx: 'open', Mode: 'search'
+2026-03-24 15:43:16 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:16 WARNING - Debug: 'Port 6667: open'
+2026-03-24 15:43:16 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:43:16 WARNING - Debug: '  --> Found open service on port 6667!'
+2026-03-24 15:43:16 INFO - Loop execution complete
+2026-03-24 15:43:16 WARNING - Debug: '---'
+2026-03-24 15:43:16 WARNING - Debug: '=== Scan Complete ==='
+2026-03-24 15:43:16 WARNING - Cleaning up session stores

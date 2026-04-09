@@ -1,0 +1,9 @@
+2026-04-09 13:07:13 INFO - Delay before commands: 0 seconds
+2026-04-09 13:07:13 INFO - Executing Bettercap Command: post_api_session
+2026-04-09 13:07:13 WARNING - Debug: 'Network probing started. Waiting 15 seconds for discovery...'
+2026-04-09 13:07:13 INFO - Sleeping 1 seconds
+2026-04-09 13:07:14 INFO - Executing Bettercap Command: post_api_session
+2026-04-09 13:07:18 INFO - Executing Bettercap Command: get_session_lan
+2026-04-09 13:07:18 WARNING - Debug: 'Discovered LAN hosts: {"hosts":[]}
+'
+2026-04-09 13:07:18 WARNING - Cleaning up session stores

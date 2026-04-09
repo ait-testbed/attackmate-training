@@ -1,0 +1,1 @@
+2026-03-27 16:23:41 ERROR - Error: Playbook file not found under '/non/existent/path/playbook.yml' or in the current directory or in /etc/attackmate/playbooks

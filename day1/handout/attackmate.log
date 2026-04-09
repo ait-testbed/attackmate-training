@@ -1,0 +1,21 @@
+2026-03-24 15:25:29 DEBUG - Playbook target filepath is set to: playbook.yaml
+2026-03-24 15:25:29 DEBUG - Config file /etc/attackmate.yml loaded
+2026-03-24 15:25:29 INFO - Delay before commands: 1.0 seconds
+2026-03-24 15:25:30 DEBUG - Template-Command: 'nmap -p 80 10.110.0.31'
+2026-03-24 15:25:30 INFO - Executing Shell-Command: 'nmap -p 80 10.110.0.31'
+2026-03-24 15:25:30 DEBUG - Running non interactive command
+2026-03-24 15:25:30 DEBUG - Closing popen process
+2026-03-24 15:25:30 DEBUG - loop_if does not match
+2026-03-24 15:25:30 DEBUG - loop_if_not does not match
+2026-03-24 15:25:31 DEBUG - Template-Command: '(\d+)/tcp open  http'
+2026-03-24 15:25:31 WARNING - RegEx: '(\d+)/tcp open  http', Mode: 'findall'
+2026-03-24 15:25:31 DEBUG - {'MATCH_0': '80'}
+2026-03-24 15:25:31 DEBUG - loop_if does not match
+2026-03-24 15:25:31 DEBUG - loop_if_not does not match
+2026-03-24 15:25:32 DEBUG - Template-Command: 'nikto -host 10.110.0.31 -port $PORT'
+2026-03-24 15:25:32 INFO - Executing Shell-Command: 'nikto -host 10.110.0.31 -port 80'
+2026-03-24 15:25:32 DEBUG - Running non interactive command
+2026-03-24 15:25:32 DEBUG - Closing popen process
+2026-03-24 15:25:32 DEBUG - loop_if does not match
+2026-03-24 15:25:32 DEBUG - loop_if_not does not match
+2026-03-24 15:25:32 WARNING - Cleaning up session stores

