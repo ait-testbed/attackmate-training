@@ -47,7 +47,7 @@ The training environment consists of two machines deployed on OpenStack:
 
 **Metasploitable2**: A deliberately vulnerable Linux VM with dozens of exploitable services. This is our target for the training. See the [Metasploitable2 documentation](https://docs.rapid7.com/metasploit/metasploitable-2/) for a full list of services and known vulnerabilities.
 
-> **SSH note:** Metasploitable2 uses legacy SSH key algorithms that modern OpenSSH clients reject by default. To connect via SSH manually, you might have to1 add the following to your `~/.ssh/config`:
+> **SSH note:** Metasploitable2 uses legacy SSH key algorithms that modern OpenSSH clients reject by default. To connect via SSH manually, you might have to add the following to your `~/.ssh/config`:
 >
 > ```
 > Host <METASPLOITABLE_IP>
