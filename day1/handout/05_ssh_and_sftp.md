@@ -226,7 +226,7 @@ This example demonstrates a complete SSH attack scenario against Metasploitable2
 ```yaml
 vars:
   TARGET: 192.168.1.100
-  PASSWDLIST: /usr/share/seclists/Passwords/passwordlist.txt
+  PASSWDLIST: /usr/share/SecLists/Passwords/passwordlist.txt
 
 commands:
   # 1. Reconnaissance

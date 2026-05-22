@@ -16,7 +16,7 @@
 # Requirements:
 #     - Metasploitable2 VM running and reachable
 #     - hydra, wget installed
-#     - seclists installed (/usr/share/seclists/)
+#     - seclists installed (/usr/share/SecLists/)
 #
 # Instructions:
 #     1. Replace the TODO lines with your implementation
@@ -25,7 +25,7 @@
 
 vars:
   TARGET: CHANGE_ME
-  PASSWDLIST: /usr/share/seclists/Passwords/darkweb2017-top1000.txt
+  PASSWDLIST: /usr/share/SecLists/Passwords/darkweb2017-top1000.txt
 
 commands:
   # ============================================

@@ -95,7 +95,7 @@ Every AttackMate playbook is a YAML file with two sections:
 # Optional: define variables
 vars:
   TARGET: 192.168.1.100
-  WORDLIST: /usr/share/seclists/Passwords/darkweb2017-top1000.txt
+  WORDLIST: /usr/share/SecLists/Passwords/darkweb2017-top1000.txt
 
 # Required: list of commands to execute
 commands:

@@ -16,7 +16,7 @@
 # Requirements:
 #     - Metasploitable2 VM running and reachable
 #     - nmap, hydra installed on the attacker machine
-#     - seclists installed (/usr/share/seclists/)
+#     - seclists installed (/usr/share/SecLists/)
 #     - linpeas.sh pre-installed at /opt/tools/linpeas.sh
 #
 # IMPORTANT: Replace the METASPLOITABLE variable with your target's IP!

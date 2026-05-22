@@ -7,7 +7,7 @@ Variables allow you to define values once and reuse them throughout your playboo
 ```yaml
 vars:
   METASPLOITABLE: 172.17.0.106
-  PASSWDLIST: /usr/share/seclists/Passwords/darkweb2017-top1000.txt
+  PASSWDLIST: /usr/share/SecLists/Passwords/darkweb2017-top1000.txt
 
 commands:
   - type: shell
