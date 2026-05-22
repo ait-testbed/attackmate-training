@@ -25,7 +25,7 @@
 
 vars:
   TARGET: CHANGE_ME
-  PASSWDLIST: /usr/share/SecLists/Passwords/darkweb2017-top1000.txt
+  PASSWDLIST: /usr/share/SecLists/Passwords/darkweb2017_top-1000.txt
 
 commands:
   # ============================================
