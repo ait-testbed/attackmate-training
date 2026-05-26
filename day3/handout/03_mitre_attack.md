@@ -165,7 +165,7 @@ When a command with `metadata` runs, AttackMate writes a line to its log:
 INFO  Metadata: {"tactic": "TA0007", "technique": "T1046", "technique_name": "Network Service Discovery"}
 ```
 
-This line appears in the standard log output and in the JSON audit log (if enabled). The keys are arbitrary; use whatever naming convention your analysis pipeline expects.
+This line appears in the standard log output and in the JSON log (if enabled). The keys are arbitrary; use whatever naming convention your analysis pipeline expects.
 
 ### Example: annotating a port scan
 

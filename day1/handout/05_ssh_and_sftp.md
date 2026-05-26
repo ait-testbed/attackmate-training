@@ -254,10 +254,10 @@ commands:
     hostname: $TARGET
     creates_session: "foothold"
 
-  # 5. Upload linpeas to target (pre-installed on attacker at /opt/tools/)
+  # 5. Upload linpeas to target (pre-installed on attacker at /var/www/html)
   - type: sftp
     cmd: put
-    local_path: /opt/tools/linpeas.sh
+    local_path: /var/www/html/linpeas.sh
     remote_path: /tmp/linpeas.sh
     session: "foothold"
     mode: "777"

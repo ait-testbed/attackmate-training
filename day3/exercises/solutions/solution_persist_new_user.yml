@@ -47,6 +47,10 @@ commands:
     username: backdooruser
     password: Passw0rd123
     creates_session: backdoor_user_session
+    disabled_algorithms:
+      pubkeys:
+        - rsa-sha2-256
+        - rsa-sha2-512
 
   - type: debug
     cmd: "Backdoor account SSH access confirmed: $RESULT_STDOUT"

