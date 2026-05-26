@@ -17,7 +17,7 @@
 #     - Metasploitable2 VM running and reachable
 #     - nmap, hydra installed on the attacker machine
 #     - seclists installed (/usr/share/SecLists/)
-#     - linpeas.sh pre-installed at /opt/tools/linpeas.sh
+#     - linpeas.sh pre-installed at /var/www/html/linpeas.sh
 #
 # IMPORTANT: Replace the METASPLOITABLE variable with your target's IP!
 #
@@ -73,10 +73,14 @@ commands:
     password: $USERPW
     hostname: $METASPLOITABLE
     creates_session: "foothold"
+    disabled_algorithms:
+      pubkeys:
+        - rsa-sha2-256
+        - rsa-sha2-512
 
   # ============================================
   # STEP 5a: Upload LinPeas
-  # LinPeas is pre-installed on the attacker machine at /opt/tools/linpeas.sh.
+  # LinPeas is pre-installed on the attacker machine at /var/www/html/linpeas.sh.
   # Use SFTP to upload it to the target.
   # The session: "foothold" reuses our existing SSH connection.
   # mode: "777" makes the uploaded file executable.
@@ -84,9 +88,9 @@ commands:
   - type: sftp
     cmd: put
     # a small custom enumaration scriot as stand in for linpeas
-    local_path: /training/day1/exercises/enum.sh
+    local_path: ../exercises/enum.sh
     # this is where the actual linpeas script is usually saved on installation
-    # local_path: /opt/tools/linpeas.sh
+    # local_path: /var/www/html/linpeas.sh
     remote_path: /tmp/linpeas.sh
     session: "foothold"
     mode: "777"
