@@ -64,6 +64,39 @@ Use `clear_cache: True` to reset cached settings when connecting to a different 
 
 ---
 
+## Paramiko Compatibility with Legacy SSH Hosts
+
+AttackMate uses [Paramiko](https://www.paramiko.org/) as its SSH library. Paramiko has introduced several breaking changes that prevent connections to old systems like Metasploitable 2 (used in this training), which runs a very early OpenSSH version.
+
+There are **two distinct breakpoints** to be aware of:
+
+### Break: Paramiko 2.9.0 (key-exchange / host-key negotiation)
+
+Paramiko 2.9.0 changed how it negotiates the host-key algorithm. Prior to 2.9.0, Paramiko would offer `ssh-rsa` (SHA-1) as a fallback when the server did not advertise `server-sig-algs`. From 2.9.0 onward it only offers `rsa-sha2-512` / `rsa-sha2-256`, and if the server does not support those it gives up instead of falling back.
+
+Metasploitable 2's OpenSSH only advertises `ssh-rsa`, so Paramiko 2.9+ cannot negotiate a host-key algorithm with it and the connection fails.
+
+**Workaround**: explicitly disable the newer RSA variants so Paramiko falls back to `ssh-rsa`:
+
+```python
+# attackmate config (config.yml) – ssh section
+ssh:
+  disabled_algorithms:
+    pubkeys:
+      - rsa-sha2-512
+      - rsa-sha2-256
+```
+
+Or pin Paramiko to `< 2.9.0`:
+
+### Paramiko 5.x:  complete incompatibility
+
+Paramiko 5.0.0 removed the `disabled_algorithms` workaround paths entirely. There is no configuration knob that restores compatibility with Metasploitable 2; the connection will fail regardless.
+
+> **Recommendation:** When working against Metasploitable 2 (or other targets running legacy OpenSSH), use **Paramiko ≤ 2.8.x**. If you are on a newer Paramiko (2.9–4.x), apply the `disabled_algorithms` workaround above. Do **not** use to Paramiko >= 5.x if you need to connect to legacy targets.
+
+---
+
 ## Sessions
 
 Sessions keep an SSH connection open across multiple commands. Without sessions, each `ssh` command opens a new connection, runs the command, and disconnects. With sessions, you maintain state (working directory, environment, elevated privileges).
