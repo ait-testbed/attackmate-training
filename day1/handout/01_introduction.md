@@ -55,7 +55,7 @@ The training environment consists of two machines deployed on OpenStack:
 >     PubkeyAcceptedKeyTypes +ssh-rsa,ssh-dss
 > ```
 >
-> Replace `<METASPLOITABLE_IP>` with your actual Metasploitable2 IP if it differs.
+> Replace `<METASPLOITABLE_IP>` with your actual Metasploitable2 IP.
 
 ### Verify the Lab Setup
 
