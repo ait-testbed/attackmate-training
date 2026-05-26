@@ -36,8 +36,6 @@ commands:
       technique_name: "Non-Application Layer Protocol"
 
   # Write the cron entry to the target.
-  # printf is used instead of echo to avoid shell interpretation issues with
-  # the >& redirect inside the command string.
   - type: msf-session
     session: $SESSION_NAME
     cmd: "/bin/bash -p"
