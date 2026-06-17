@@ -43,6 +43,7 @@ from attackmate.command import CommandRegistry
 @CommandRegistry.register('hello')
 class HelloCommand(BaseCommand):
     type: Literal['hello']
+    cmd: str = ''       # BaseCommand requires cmd; override with a default since hello doesn't use it
     message: str = "Hello, AttackMate!"
 ```
 

@@ -9,6 +9,9 @@ A `hello` command that:
 - Logs the message at INFO level when executed
 - Returns the message as `$RESULT_STDOUT`
 
+> **Note:** `BaseCommand` declares `cmd: str` as a required field (no default).  
+> Because `hello` does not use `cmd`, override it in `HelloCommand` with `cmd: str = ''` so that the YAML field is optional.
+
 After completing the exercise, this playbook should run successfully:
 
 ```yaml

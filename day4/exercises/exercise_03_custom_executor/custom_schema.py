@@ -15,6 +15,10 @@ class HelloCommand(BaseCommand):
     #       It must be a Literal with the value 'hello'.
     type: ...  # TODO
 
+    # BaseCommand declares `cmd: str` with no default, but hello doesn't use it.
+    # Override it here with an empty-string default so the YAML field is optional.
+    cmd: str = ''
+
     # TODO: Add the message field.
     #       It should be a str with a default value of "Hello, AttackMate!"
     message: ...  # TODO
