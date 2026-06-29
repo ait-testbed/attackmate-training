@@ -1,4 +1,4 @@
-# Day 2: Attack Scenarios I — Payloads, Metasploit, and C2 Frameworks
+# Day 2: Attack Scenarios I - Payloads, Metasploit, and C2 Frameworks
 
 ## Materials Overview
 
