@@ -1,0 +1,45 @@
+#
+# Exercise 1: AttackMate Basics Guided Version
+#
+# Instructions:
+#     Each command skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate exercise_01_basics_guided.yml
+#
+
+vars:
+  # TODO 1: Replace "???" with your name
+  ATTACKER_NAME: "???"
+
+  # TODO 2: Replace "???" with your Metasploitable2 IP address
+  TARGET_IP: "???"
+
+commands:
+  # TODO 3: Replace "???" with a greeting string that uses $ATTACKER_NAME
+  # Expected output: "Hello, I am <your name>"
+  - type: debug
+    cmd: "???"
+
+  # TODO 4: Replace "???" with the shell command that prints the local hostname
+  - type: shell
+    cmd: "???"
+
+  # TODO 5: Replace "???" with the builtin variable that holds the last command's stdout
+  # Expected output: "My hostname is: <hostname>"
+  - type: debug
+    cmd: "My hostname is: ???"
+
+  # TODO 6: Replace "???" with the string to store in SCAN_CMD
+  # The string should combine "nmap -p 22 " with the TARGET_IP variable
+  - type: setvar
+    variable: SCAN_CMD
+    cmd: "???"
+
+  # TODO 7: Replace "???" with the variable that holds the scan command
+  # Expected output: "Scan command: nmap -p 22 <target_ip>"
+  - type: debug
+    cmd: "Scan command: ???"
+
+  # TODO 8: Add the field that tells debug to dump every variable in the store
+  - type: debug
+    varstore: "???"

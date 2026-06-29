@@ -1,0 +1,65 @@
+#
+# Exercise 4: Multi-Port Scanner with Loops and Conditionals Guided Version
+#
+# Instructions:
+#     The outer loop skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate exercise_04_multi_port_scanner_guided.yml
+#
+
+vars:
+  # TODO: Replace "???" with your Metasploitable2 IP
+  TARGET: "???"
+  SCAN_PORTS:
+    - 21
+    - 22
+    - 80
+    - 443
+    - 6667
+
+commands:
+  - type: debug
+    cmd: "=== Multi-Port Scanner ==="
+  - type: debug
+    cmd: "Target: $TARGET"
+  - type: debug
+    cmd: "---"
+
+  # The loop structure is provided. Fill in each "???" inside the loop body.
+  #
+  # $LOOP_ITEM holds the current port number on each iteration.
+  - type: loop
+    # TODO 1a: Replace "???" with the loop expression that iterates over SCAN_PORTS
+    cmd: "???"
+    commands:
+      # TODO 1b: Replace "???" with the nmap command to scan $LOOP_ITEM on $TARGET
+      - type: shell
+        cmd: "???"
+        exit_on_error: False
+
+      # TODO 1c: Replace each "???":
+      #   - cmd: pattern to search for in the nmap output (just the word "open")
+      #   - output variable PORT_STATUS should receive the match ($MATCH_0)
+      # mode: search is already set 
+      - type: regex
+        cmd: "???"
+        mode: search
+        output:
+          PORT_STATUS: "???"
+
+      # TODO 1d: Replace "???" with a string that prints the port and its status
+      # Expected output: "Port 21: open"  (or empty string if closed)
+      - type: debug
+        cmd: "???"
+
+      # TODO 1e: Replace each "???":
+      #   - cmd: the message to print when a port is open
+      #   - only_if: condition that checks PORT_STATUS matches "open" (use the =~ operator)
+      - type: debug
+        cmd: "???"
+        only_if: "???"
+
+  - type: debug
+    cmd: "---"
+  - type: debug
+    cmd: "=== Scan Complete ==="

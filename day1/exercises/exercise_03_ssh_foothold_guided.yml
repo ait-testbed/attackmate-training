@@ -1,0 +1,90 @@
+#
+# Exercise 3: Establishing an SSH Foothold Guided Version
+#
+# Instructions:
+#     Each command skeleton is already in place.
+#     Replace every "???" placeholder with the correct value.
+#     Run with: attackmate exercise_03_ssh_foothold_guided.yml
+#
+
+vars:
+  # TODO: Replace "???" with your Metasploitable2 IP
+  TARGET: "???"
+  PASSWDLIST: /usr/share/SecLists/Passwords/darkweb2017_top-1000.txt
+
+commands:
+  # ============================================
+  # PHASE 1: Credential Discovery
+  # ============================================
+
+  # TODO 1: Replace "???" with the hydra command that bruteforces FTP for user "user"
+  # Full command: hydra -l user -P $PASSWDLIST $TARGET ftp
+  - type: shell
+    cmd: "???"
+
+  # TODO 2: Replace each "???":
+  #   - cmd: regex pattern that matches hydra's output line and captures the password
+  #     Hydra output format: "... login: user   password: <password>"
+  #     Use a capture group around the password part
+  #   - output: PASSWORD should receive the first capture group
+  - type: regex
+    cmd: "???"
+    output:
+      PASSWORD: "???"
+
+  # TODO 3: Replace "???" with a string that prints the discovered password
+  - type: debug
+    cmd: "???"
+
+  # ============================================
+  # PHASE 2: SSH Access
+  # ============================================
+
+  # TODO 4: Replace each "???":
+  #   - cmd: the command to verify login (run "id" on the remote host)
+  #   - username: the SSH username discovered above
+  #   - password: the variable holding the discovered password
+  #   - hostname: the variable holding the target IP
+  #   - creates_session: name this session "foothold"
+  - type: ssh
+    cmd: "???"
+    username: "???"
+    password: "???"
+    hostname: "???"
+    creates_session: "???"
+
+  # TODO 5: Replace "???" with the command to get OS/kernel info
+  # Use the "foothold" session (session field already present)
+  - type: ssh
+    cmd: "???"
+    session: "foothold"
+
+  # TODO 6: Replace "???" with a string that prints the OS information
+  - type: debug
+    cmd: "???"
+
+  # ============================================
+  # PHASE 3: File Transfer
+  # ============================================
+
+  # TODO 7: Replace each "???":
+  #   - local_path: path to enum.sh relative to this file (it lives in exercises/)
+  #   - remote_path: where to place it on the target
+  #   - mode: octal permission string that makes the file executable
+  - type: sftp
+    cmd: put
+    local_path: "???"
+    remote_path: "???"
+    session: "foothold"
+    mode: "???"
+
+  # TODO 8: Replace each "???":
+  #   - cmd: shell command to run the uploaded script and save output
+  #     Remember: interactive commands need \n at the end
+  #   - save: local file path to save the output to
+  # interactive: True is already set — do not remove it
+  - type: ssh
+    cmd: "???"
+    session: "foothold"
+    interactive: True
+    save: "???"
