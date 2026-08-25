@@ -13,6 +13,18 @@
 
 
 commands:
+  # ============================================
+  # PHASE 0: Preparation
+  # ============================================
+  # Because the vsftpd exploit leaves a running process on the target, we will clean
+  # it up every time before trying again.
+  #
+  - type: ssh
+    hostname: $TARGET
+    username: msfadmin
+    password: msfadmin
+    cmd: "sudo -S -p 'msfadmin' fuser -k 6200/tcp 2>/dev/null"
+
   - type: debug
     cmd: "Attempting vsftpd 2.3.4 backdoor against $TARGET port 21..."
 
