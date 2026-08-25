@@ -43,9 +43,9 @@ commands:
   #             nmap -p $LOOP_ITEM $TARGET
   #             Set exit_on_error: False in case nmap has issues
   #
-  #          b) Use regex with mode: search to check if the word "open"
-  #             appears in the nmap output. Store the result in PORT_STATUS.
-  #             Hint: input should be RESULT_STDOUT (which is the default)
+  #          b) Use regex to capture the word after "tcp " that appears in the
+  #             nmap output. Store the result in PORT_STATUS.  Hint: input should
+  #             be RESULT_STDOUT (which is the default)
   #
   #          c) Use debug to print: "Port <port>: <status>"
   #             where <status> is the content of $PORT_STATUS

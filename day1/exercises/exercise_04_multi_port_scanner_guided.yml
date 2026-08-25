@@ -38,17 +38,15 @@ commands:
         exit_on_error: False
 
       # TODO 1c: Replace each "???":
-      #   - cmd: pattern to search for in the nmap output (just the word "open")
+      #   - cmd: pattern to search for in the nmap output (the word after "tcp ")
       #   - output variable PORT_STATUS should receive the match ($MATCH_0)
-      # mode: search is already set 
       - type: regex
         cmd: "???"
-        mode: search
         output:
           PORT_STATUS: "???"
 
       # TODO 1d: Replace "???" with a string that prints the port and its status
-      # Expected output: "Port 21: open"  (or empty string if closed)
+      # Expected output: "Port 21: open" or "Port nn: closed" 
       - type: debug
         cmd: "???"
 

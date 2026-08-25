@@ -28,10 +28,9 @@ commands:
         cmd: nmap -p $LOOP_ITEM $TARGET
         exit_on_error: False
 
-      # b) Check if "open" appears in the output
+      # b) Capture the word after "tcp "
       - type: regex
-        cmd: "open"
-        mode: search
+        cmd: "tcp[ ]+(.+)[ ]"
         output:
           PORT_STATUS: "$MATCH_0"
 
