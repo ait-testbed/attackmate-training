@@ -54,7 +54,7 @@ commands:
     hostname: $TARGET
     username: msfadmin
     password: msfadmin
-    cmd: "sudo -S -p 'msfadmin' fuser -k 6200/tcp 2>/dev/null"
+    cmd: "echo msfadmin | sudo -S -p 'msfadmin' fuser -k 6200/tcp 2>/dev/null"
 
   # ============================================
   # PHASE 1: Exploitation
