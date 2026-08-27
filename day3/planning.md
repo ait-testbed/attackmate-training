@@ -1,22 +1,7 @@
 # Day 3 Planning - Full Attack Chain Lab
 
 ## Goal
-
-Day 3 is the capstone. Participants take everything from days 1-2 and assemble a complete, automated attack chain against Metasploitable2 from scratch. The day shifts from instructor-guided walkthroughs to participant-driven lab work, with theory front-loaded in the morning.
-
----
-
-## Day 3 vs. Days 1 and 2
-
-| Topic | Day 1 | Day 2 | Day 3 |
-|---|---|---|---|
-| AttackMate basics (shell, variables, SSH) | Introduced | Reviewed | Used |
-| Metasploit / C2 | No | Core topic | Used |
-| Modular playbooks | No | Introduced | Used heavily |
-| Kill chain concept | Shown briefly in intro | Used implicitly | Taught explicitly |
-| MITRE ATT&CK | No | No | Introduced |
-| Log analysis (blue team view) | No | No | Introduced |
-| Full end-to-end chain | No | Partial | Primary exercise |
+ Participants take everything from days 1-2 and assemble a complete, automated attack chain against Metasploitable2 from scratch. The day shifts from instructor-guided walkthroughs to participant-driven lab work, with theory on Mitre Framework and Cyber Kill Chain in the morning.
 
 ---
 
@@ -35,9 +20,7 @@ Phases:
 6. **Command and Control (C2)** - Maintain channel to target (Meterpreter, Sliver beacon)
 7. **Actions on Objectives** - Accomplish the goal (credential dump, data exfil, lateral movement)
 
-Key narrative: day 1 (SSH bruteforce + foothold) hit phases 1, 4, 5; day 2 (payloads, Metasploit, C2) added phases 2, 3, 6, 7. Today we run the full chain explicitly, planning and labeling each phase.
-
-Include the existing `cyber_kill_chain.drawio.png` image. Walk through it in detail.
+Key narrative: day 1 (SSH bruteforce + foothold) hit phases 1, 4, 5; day 2 (payloads, Metasploit, C2) added phases 2, 3, 6, 7. run the full chain explicitly, planning and labeling each phase.
 
 Map specific AttackMate commands to kill chain phases:
 - Recon: `shell` (nmap, hydra), `regex` (parse nmap output)
@@ -59,7 +42,7 @@ Structure:
 
 Kill Chain vs. ATT&CK: Kill Chain is a linear progression; ATT&CK is a matrix (attackers can jump phases, revisit, use multiple techniques per tactic). They are complementary.
 
-Technique mappings for today's lab:
+Technique mappings 
 | ATT&CK ID | Technique | What we do |
 |---|---|---|
 | T1046 | Network Service Discovery | nmap scans |
@@ -105,7 +88,7 @@ Log sources on Metasploitable2 / Linux:
   - Unexpected outbound TCP connections on non-standard ports (4444, 4445, 31337) are a key IOC
   - Connection to attacker IP from victim IP on a high port = reverse shell callback
 
-Blue team rules of thumb to teach:
+Blue team rules of thumb:
 - Many failed logins followed by one success = brute force
 - Outbound connection to unknown IP on high port = C2 channel / reverse shell
 - New listening port suddenly appearing = backdoor or bind shell
@@ -121,10 +104,6 @@ Tool to demo log reading from attacker perspective: `msf-session` running `tail 
 ### Concept
 
 Participants assemble a full attack chain as a modular AttackMate playbook. Each phase of the kill chain is represented by one or more include files. Participants choose one option per phase from a "menu" and wire them together in a top-level playbook.
-
-Some include files are pre-written as examples. Others are provided as skeletons with TODOs. The stretch goal is to write one or more phases entirely from scratch.
-
-This mirrors how real red team playbooks are constructed: reusable modules per phase, a top-level orchestration file.
 
 ### Attack Path Menu (modular options per phase)
 
@@ -206,8 +185,6 @@ These are bundled with entry point options below since they differ significantly
 
 This is handled by the entry point choice: Meterpreter sessions (Metasploit) or SSH sessions cover C2 for today's exercise.
 
-Optional stretch: deploy a Sliver beacon instead (pre-built include from day 2 content).
-
 #### Phase 7: Actions on Objectives (choose one or more)
 
 **Action A: System discovery**
@@ -240,91 +217,5 @@ Optional stretch: deploy a Sliver beacon instead (pre-built include from day 2 c
 - `msf-session` or `ssh`: `tail /var/log/apache2/access.log` - see your own HTTP exploit
 - Good debrief discussion prompt
 
----
 
-## Exercise Structure
 
-### Main Skeleton File: `attack_chain.yml`
-
-Top-level playbook that:
-- Defines all variables (TARGET, ATTACKER_IP, LHOST, LPORT)
-- Has `include` commands for each kill chain phase (most pointing to include files)
-- One or two phases have TODO comments for participants to fill in
-
-### Include Files Provided
-
-Pre-written (examples, reference):
-- `includes/recon_nmap.yml` - nmap scan + parse open ports
-- `includes/entry_vsftpd.yml` - vsftpd backdoor
-- `includes/post_basic_info.yml` - sysinfo, getuid commands via session
-- `includes/exfil_sftp.yml` - sftp download of /etc/passwd
-
-Skeleton (TODOs for participants):
-- `includes/entry_samba.yml` - Samba exploit (TODO: fill in module name, options)
-- `includes/entry_ssh.yml` - SSH login with credentials (TODO: fill in options)
-- `includes/persist_ssh_key.yml` - SSH key persistence (TODO: fill in sftp upload steps)
-- `includes/collect_shadow.yml` - read /etc/shadow via session (TODO: fill in command)
-
-### Solutions
-
-- `solutions/full_attack_chain_solution.yml` - example complete chain: vsftpd entry + meterpreter upgrade + shadow dump + sftp exfil
-
----
-
-## Session Flow
-
-| Time | Activity |
-|---|---|
-| 09:00 | Module 1: Cyber Kill Chain lecture |
-| 09:45 | Module 2: MITRE ATT&CK excursion |
-| 10:15 | Module 3: Attacks in logs |
-| 10:45 | Break |
-| 11:00 | Lab briefing: explain modular structure, hand out menu |
-| 11:15 | Lab: participants build their attack chain |
-| 13:00 | Lunch |
-| 14:00 | Lab continues |
-| 16:00 | Show and tell: each group walks through their playbook |
-| 16:30 | Debrief: ATT&CK mapping, log review, Q&A |
-| 17:00 | End |
-
----
-
-## Files to Write
-
-```
-training/day3/
-├── planning.md                          (this file)
-├── README.md
-├── config.yml                           (same as day2, symlink or copy)
-├── handout/
-│   ├── 01_debugging_cheatsheet.md       (already exists)
-│   ├── 02_cyber_kill_chain.md
-│   ├── 03_mitre_attack.md
-│   ├── 04_attacks_in_logs.md
-│   └── 05_attack_path_menu.md
-├── exercises/
-│   ├── attack_chain.yml                 (main skeleton)
-│   └── includes/
-│       ├── recon_nmap.yml
-│       ├── entry_vsftpd.yml
-│       ├── entry_samba.yml
-│       ├── entry_ssh.yml
-│       ├── post_basic_info.yml
-│       ├── post_meterpreter_upgrade.yml
-│       ├── persist_ssh_key.yml
-│       ├── collect_shadow.yml
-│       └── exfil_sftp.yml
-└── exercises/solutions/
-    └── full_attack_chain_solution.yml
-```
-
----
-
-## Design Decisions and Notes
-
-- **Kill chain over MITRE ATT&CK as primary frame**: The kill chain is simpler and more linear, which makes it easier to structure the lab. ATT&CK is taught as an enrichment lens, not as the primary organizer.
-- **Modular over single script**: Participants build their chain from parts rather than writing everything from scratch. This keeps the complexity manageable while still requiring genuine assembly and understanding. It also models real red team tooling practice.
-- **Multiple entry points**: Offering four different Initial Access options means different groups can take different paths, making the show-and-tell debrief more interesting.
-- **Log reading as an exercise step**: Having participants read `auth.log` and `apache2/access.log` from inside their own session is a memorable moment - they see exactly what defenders see. It also reinforces the MITRE / blue team lecture content.
-- **No new AttackMate features**: Day 3 intentionally introduces no new command types. Everything uses what was taught in days 1-2. The cognitive load is on planning and assembly, not on new syntax.
-- **Debugging cheatsheet (existing 01_debugging_cheatsheet.md)**: Becomes critical today since participants will hit connection and timing issues on their own. Make sure it is distributed at the lab briefing.
