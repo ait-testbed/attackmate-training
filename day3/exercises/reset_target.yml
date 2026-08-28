@@ -1,0 +1,45 @@
+  vars:
+    TARGET: "?"        # Metasploitable2 IP address
+
+
+  commands:
+
+  # ============================================
+  # PHASE 0: Preparation
+  # ============================================
+  # Because the vsftpd exploit leaves a running process on the target, we will clean
+  # it up every time before trying again.
+  #
+  - type: ssh
+    hostname: $TARGET
+    username: msfadmin
+    password: msfadmin
+    cmd: "echo msfadmin | sudo -S -p 'msfadmin' fuser -k 6200/tcp 2>/dev/null" 
+    
+  # if a user had been created on the target, this command removes it before running the playbook again
+  - type: ssh
+    hostname: $TARGET
+    username: msfadmin
+    password: msfadmin
+    cmd: "echo msfadmin | sudo userdel -f -r backdooruser"
+    exit_on_error: false
+  
+  # if an ssh key has been added to targets /root/.ssh, delete it before running the playbook again
+  - type: ssh
+    hostname: $TARGET
+    username: msfadmin
+    password: msfadmin
+    cmd:  "echo msfadmin | sudo -S sh -c 'grep -v \"attacker@attackmate\" /root/.ssh/authorized_keys > /tmp/authorized_keys.clean && sudo cat /tmp/authorized_keys.clean > /root/.ssh/authorized_keys && sudo rm -f /tmp/authorized_keys.clean'"
+    exit_on_error: false
+
+  # if an cronjob has been added, delete it before running the playbook again
+  - type: ssh
+    hostname: $TARGET
+    username: msfadmin
+    password: msfadmin
+    cmd:  "echo msfadmin | sudo rm /etc/cron.d/backdoor"
+    exit_on_error: false
+  
+  # uncomment to exit after cleanup commands
+  #- type: debug
+  #  exit: true
